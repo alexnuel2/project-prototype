@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration and Dashboard</title> <h1>this your Coin Balance </h1>
+    
+    <div id="balance">Current Balance: 100 coins</div>
+   
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-stock.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-data-adapter.min.js"></script>
+
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-ui.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-exports.min.js"></script>
+
+    <link href="https://cdn.anychart.com/releases/8.11.0/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+    <link href="https://cdn.anychart.com/releases/8.11.0/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial"></script>
+
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: Arial, sans-serif;
+      }
+
+      .sidebar {
+          height: 100vh;
+          width: 250px;
+          position: fixed;
+          top: 0;
+          left: 0;
+          background-color: #333;
+          padding-top: 20px;
+          transition: width 0.3s;
+      }
+
+      .sidebar a {
+          padding: 15px 25px;
+          text-decoration: none;
+          font-size: 18px;
+          color: white;
+          display: block;
+          transition: background-color 0.3s;
+      }
+
+      .sidebar a:hover {
+          background-color: #575757;
+      }
+
+      .sidebar .logo {
+          font-size: 24px;
+          color: #fff;
+          text-align: center;
+          margin-bottom: 20px;
+      }
+
+      .content {
+          margin-left: 250px;
+          padding: 20px;
+      }
+
+      /* Toggle button */
+      .toggle-btn {
+          position: absolute;
+          left: 260px;
+          top: 20px;
+          cursor: pointer;
+          font-size: 18px;
+          background-color: #333;
+          color: white;
+          border: none;
+          padding: 10px 15px;
+          transition: left 0.3s;
+      }
+
+      .collapsed {
+          width: 60px;
+      }
+
+      .collapsed .toggle-btn {
+          left: 70px;
+      }
+
+      .collapsed a {
+          font-size: 0;
+          padding: 15px;
+      }
+
+      .collapsed .logo {
+          font-size: 0;
+      }
+
+  </style>
+</head>
+<body style="background-color: white;">
+
+    <div class="sidebar" id="sidebar">
+        <div class="logo">My Logo</div>
+        <a href="#home">Home</a>
+        <a href="about.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <button class="toggle-btn" id="toggleBtn">☰</button>
+
+    <div class="container" id="main-container">
+    
+      <h2>Dashboard</h2>
+      <div class="dashboard-content">
+          <div id="coin-chart"  style="width:100%; height: 100%;">
+              <h3>Coin Chart</h3>
+              <!-- Placeholder for coin chart -->
+              <div>
+                  <canvas id="myLineChart"></canvas>
+                </div>
+            
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            
+                <script>
+                  // script.js
+            
+                  // Get the canvas element
+                  const ctx = document.getElementById("myLineChart").getContext("2d");
+            
+                  // Create a new Chart instance
+                  const myLineChart = new Chart(ctx, {
+                    type: "line", // Type of chart
+                    data: {
+                      labels: [
+                        "January",
+                        "February",
+                        "March",
+                        "April",
+                        "May",
+                        "June",
+                        "July",
+                      ], // X-axis labels
+                      datasets: [
+                        {
+                          label: "Monthly Sales", // Data label
+                          data: [10, 20, 15, 25, 30, 20, 35], // Data points
+                          fill: false, // Whether to fill the area under the line
+                          borderColor: "rgba(75, 192, 192, 1)", // Line color
+                          tension: 0.1, // Line smoothness (0 is sharp, 1 is smooth)
+                        },
+                      ],
+                    },
+                    options: {
+                      scales: {
+                        x: {
+                          beginAtZero: true, // Start x-axis at zero
+                        },
+                        y: {
+                          beginAtZero: true, // Start y-axis at zero
+                        },
+                      },
+                      plugins: {
+                        legend: {
+                          display: true, // Show the legend
+                        },
+                        tooltip: {
+                          enabled: true, // Show tooltips on hover
+                        },
+                      },
+                    },
+                  });
+                </script>              
+              
+              
+          </div>
+          <button type="button" onclick="sellCoin()"><a href="sell-coin.html">Sell Coin</a></button>
+          <button type="button" onclick="buyCoin()">Buy Coin</button>
+          <button type="button" onclick="checkCoinRate()">Check Coin Rate</button>
+          <button type="button" onclick="viewTransactionHistory()">Transaction History</button>
+      </div>
+  </div>
+  
+  <!-- Payment Modal -->
+  <div id="payment-modal" class="modal">
+      <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2>Payment Options</h2>
+          <p>Select a payment method to proceed with purchasing coins:</p>
+          <!-- Example payment options -->
+          <button onclick="openPaymentGateway('paypal')">Pay with PayPal</button>
+          <button onclick="openPaymentGateway('stripe')">Pay with Stripe</button>
+          <!-- Add more payment methods as needed -->
+      </div>
+  </div>
+  
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('toggleBtn');
+
+        toggleBtn.onclick = function() {
+            sidebar.classList.toggle('collapsed');
+        }
+    </script>
+</div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+

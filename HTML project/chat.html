@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Chart with Chart.js</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            text-align: center;
+        }
+        canvas {
+            width: 400px !important; /* Set canvas width */
+            height: 300px !important; /* Set canvas height */
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="main-container">
+    <div class="dashboard-content">
+    <div id="coin-chart" style="width:100%; height: 100%;">
+
+    <h1>Beautiful Line Chart Example</h1>
+    <canvas id="myLineChart"></canvas>
+
+    <!-- Include Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myLineChart').getContext('2d');
+        const myLineChart = new Chart(ctx, {
+            type: 'line', // Line chart type
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'Sales Data',
+                    data: [65, 59, 80, 81, 56, 55, 70], // Data points
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)', // Fill color under the line
+                    borderColor: 'rgba(75, 192, 192, 1)', // Line color
+                    borderWidth: 2, // Line width
+                    pointBackgroundColor: 'rgba(75, 75, 192, 1)', // Point colors
+                    pointRadius: 5, // Size of the points
+                    fill: true // Enable fill under the line
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, // Allow the chart size to adjust
+                scales: {
+                    y: {
+                        beginAtZero: true // Make sure y-axis starts from zero
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Monthly Sales Data',
+                        font: {
+                            size: 24
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    </div>
+    </div>
+</div>
+
+</body>
+</html>

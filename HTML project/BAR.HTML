@@ -1,0 +1,92 @@
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .sidebar {
+        height: 100vh;
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #333;
+        padding-top: 20px;
+        transition: width 0.3s;
+    }
+
+    .sidebar a {
+        padding: 15px 25px;
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        display: block;
+        transition: background-color 0.3s;
+    }
+
+    .sidebar a:hover {
+        background-color: #575757;
+    }
+
+    .sidebar .logo {
+        font-size: 24px;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        margin-left: 250px;
+        padding: 20px;
+    }
+
+    /* Toggle button */
+    .toggle-btn {
+        position: absolute;
+        left: 260px;
+        top: 20px;
+        cursor: pointer;
+        font-size: 18px;
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        transition: left 0.3s;
+    }
+
+    .collapsed {
+        width: 60px;
+    }
+
+    .collapsed .toggle-btn {
+        left: 70px;
+    }
+
+    .collapsed a {
+        font-size: 0;
+        padding: 15px;
+    }
+
+    .collapsed .logo {
+        font-size: 0;
+    }
+
+</style>
+</head>
+<body style="background-color: white;">
+
+  <div class="sidebar" id="sidebar">
+      <div class="logo">My Logo</div>
+      <a href="BREG.HTML">Home</a>
+      </div>
+
+  <button class="toggle-btn" id="toggleBtn">☰</button>
+
+  <div class="container" id="main-container">
+  
+  

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <canvas id="myLineChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      // script.js
+
+      // Get the canvas element
+      const ctx = document.getElementById("myLineChart").getContext("2d");
+
+      // Create a new Chart instance
+      const myLineChart = new Chart(ctx, {
+        type: "line", // Type of chart
+        data: {
+          labels: [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+          ], // X-axis labels
+          datasets: [
+            {
+              label: "Monthly Sales", // Data label
+              data: [10, 20, 15, 25, 30, 20, 35], // Data points
+              fill: false, // Whether to fill the area under the line
+              borderColor: "rgba(75, 192, 192, 1)", // Line color
+              tension: 0.1, // Line smoothness (0 is sharp, 1 is smooth)
+            },
+          ],
+        },
+        options: {
+          scales: {
+            x: {
+              beginAtZero: true, // Start x-axis at zero
+            },
+            y: {
+              beginAtZero: true, // Start y-axis at zero
+            },
+          },
+          plugins: {
+            legend: {
+              display: true, // Show the legend
+            },
+            tooltip: {
+              enabled: true, // Show tooltips on hover
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

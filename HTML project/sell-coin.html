@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+    
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            padding-top: 20px;
+            transition: width 0.3s;
+        }
+    
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: background-color 0.3s;
+        }
+    
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+    
+        .sidebar .logo {
+            font-size: 24px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+    
+        /* Toggle button */
+        .toggle-btn {
+            position: absolute;
+            left: 260px;
+            top: 20px;
+            cursor: pointer;
+            font-size: 18px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            transition: left 0.3s;
+        }
+    
+        .collapsed {
+            width: 60px;
+        }
+    
+        .collapsed .toggle-btn {
+            left: 70px;
+        }
+    
+        .collapsed a {
+            font-size: 0;
+            padding: 15px;
+        }
+    
+        .collapsed .logo {
+            font-size: 0;
+        }
+    
+    </style>
+    </head>
+    <body style="background-color: white;">
+    
+      <div class="sidebar" id="sidebar">
+          <div class="logo">My Logo</div>
+          <a href="Dashboard.html">Home</a>
+          </div>
+    
+      <button class="toggle-btn" id="toggleBtn">☰</button>
+    
+      <div class="container" id="main-container">
+      
+      
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Swap</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+  
+        body {
+            font-family: Arial, sans-serif;
+        }
+  
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            padding-top: 20px;
+            transition: width 0.3s;
+        }
+  
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: background-color 0.3s;
+        }
+  
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+  
+        .sidebar .logo {
+            font-size: 24px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+  
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+  
+        /* Toggle button */
+        .toggle-btn {
+            position: absolute;
+            left: 260px;
+            top: 20px;
+            cursor: pointer;
+            font-size: 18px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            transition: left 0.3s;
+        }
+  
+        .collapsed {
+            width: 60px;
+        }
+  
+        .collapsed .toggle-btn {
+            left: 70px;
+        }
+  
+        .collapsed a {
+            font-size: 0;
+            padding: 15px;
+        }
+  
+        .collapsed .logo {
+            font-size: 0;
+        }
+  
+    </style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        #chart-container {
+            width: 80%;
+            max-width: 700px;
+            margin-bottom: 20px;
+        }
+        .input-bar {
+            margin: 10px 0;
+            padding: 10px;
+            width: 300px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        canvas {
+            width: 100% !important;
+            height: 400px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="logo">My Logo</div>
+        <a href="HOME.HTML">Home</a>
+
+    </div>
+
+    <button class="toggle-btn" id="toggleBtn">☰</button>
+
+
+    <!-- First Line Chart Section -->
+    <div id="chart-container">
+        <canvas id="myLineChart1"></canvas>
+    </div>
+
+    <!-- Second Line Chart Section -->
+    <div id="chart-container">
+        <canvas id="myLineChart2"></canvas>
+    </div>
+
+    <!-- Sell Coin Dashboard -->
+    <div id="dashboard" class="active">
+        <h1>Sell Your Coin</h1>
+        <input type="text" class="input-bar" placeholder="Input the coin you want to sell">
+        <input type="text" class="input-bar" placeholder="Swap Coin">
+        <button id="submit-btn">Submit</button>
+    </div>
+
+    <!-- Include Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- First Line Chart Script -->
+    <script>
+        const ctx1 = document.getElementById('myLineChart1').getContext('2d');
+        const myLineChart1 = new Chart(ctx1, {
+            type: 'line', 
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'Sales Data',
+                    data: [65, 59, 80, 81, 56, 1000, 100],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(75, 75, 192, 1)',
+                    pointRadius: 5,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Monthly Sales Data',
+                        font: {
+                            size: 24
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- Second Line Chart Script -->
+    <script>
+        const ctx2 = document.getElementById('myLineChart2').getContext('2d');
+        const myLineChart2 = new Chart(ctx2, {
+            type: 'line', 
+            data: {
+                labels: ['August', 'September', 'October', 'November', 'December'],
+                datasets: [{
+                    label: 'Revenue Data',
+                    data: [120, 130, 110, 140, 150],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(255, 159, 64, 1)',
+                    pointRadius: 5,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Quarterly Revenue Data',
+                        font: {
+                            size: 24
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

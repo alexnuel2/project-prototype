@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        #chart-container {
+            width: 80%;
+            max-width: 700px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart-container">
+        <canvas id="lineChart"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('lineChart').getContext('2d');
+        const lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'Monthly Sales',
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    fill: false,
+                    borderColor: '#4bc0c0',
+                    backgroundColor: '#4bc0c0',
+                    borderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 8,
+                    tension: 0.4  // Smoothing the line
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            color: '#333'
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: '#f4f4f9',
+                        titleColor: '#333',
+                        bodyColor: '#666'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+/head>
+<body>
+    <div id="chart-container">
+        <canvas id="lineChart"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('lineChart').getContext('2d');
+        const lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'Monthly Sales',
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    fill: false,
+                    borderColor: '#4bc0c0',
+                    backgroundColor: '#4bc0c0',
+                    borderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 8,
+                    tension: 0.4  // Smoothing the line
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+                            color: '#333'
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: '#f4f4f9',
+                        titleColor: '#333',
+                        bodyColor: '#666'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

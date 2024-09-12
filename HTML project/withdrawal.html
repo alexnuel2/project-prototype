@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=5.0">
+    <title>Withdrawal Request</title>
+    <link rel="stylesheet" href="withdrawal.css" style="margin-left: 46%;">
+</head>
+<body>
+    <div class="container" style="margin-left: 46%; width: 60%;">
+        <header>
+            <h1>Withdrawal Request</h1>
+            <p>Provide the details to make your transaction swift.</p>
+        </header>
+
+        <section class="form-section">
+            <form id="withdrawalForm">
+                <!-- Account Details Section -->
+                <div class="section">
+                    <h2>Account Details</h2>
+                    <p>Import your account details here.</p>
+                    <div class="form-group">
+                        <label for="fullName">Full Name:</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="accountNumber">Account Number:</label>
+                        <input type="text" id="accountNumber" name="accountNumber" placeholder="Enter your account number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bank">Bank:</label>
+                        <input type="text" id="bank" name="bank" placeholder="Enter your bank name" required>
+                    </div>
+                </div>
+
+                <!-- Transaction Details Section -->
+                <div class="section">
+                    <h2>Transaction Details</h2>
+                    <p>Enter the transaction details below.</p>
+                    <div class="form-group">
+                        <label for="country">Select Your Country:</label>
+                        <select id="country" name="country" required>
+                            <option value="">Select...</option>
+                            <option value="US">United States</option>
+                            <option value="NG">Nigeria</option>
+                            <!-- Add more country options as needed -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount:</label>
+                        <input type="number" id="amount" name="amount" min="1" placeholder="Enter amount to withdraw" required>
+                    </div>
+                </div>
+
+                <button type="submit">Submit Withdrawal</button>
+                <div id="responseMessage"></div>
+            </form>
+        </section>
+    </div>
+    <script src="withdrawal.js"></script>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdrawal History</title>
+    <link rel="stylesheet" href="withdrawals.css">
+
+    <div class="container" style="margin-left: 46%">
+        <header>
+            <h1>Withdrawal History</h1>
+            <p>View your total withdrawals in USD and NGN.</p>
+        </header>
+
+        <section class="withdrawal-section">
+            <table id="withdrawalTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Amount (USD)</th>
+                        <th>Amount (NGN)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be populated here by JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <script src="withdrawals.js"></script>
+</body>
+</html>
+
+</body>
+</html>

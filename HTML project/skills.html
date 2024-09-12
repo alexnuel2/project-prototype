@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-stock.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-data-adapter.min.js"></script>
+
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-ui.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-exports.min.js"></script>
+
+    <link href="https://cdn.anychart.com/releases/8.11.0/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+    <link href="https://cdn.anychart.com/releases/8.11.0/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial"></script>
+
+    
+        <style>
+            .balance-container {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                background-color: #f9f9f9;
+                max-width: 300px;
+            }
+    
+            .balance-title {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+    
+            .balance-item {
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+    
+            .currency {
+                font-weight: bold;
+            }
+        </style>
+        
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+  
+        body {
+            font-family: Arial, sans-serif;
+        }
+  
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            padding-top: 20px;
+            transition: width 0.3s;
+        }
+  
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: background-color 0.3s;
+        }
+  
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+  
+        .sidebar .logo {
+            font-size: 24px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+  
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+  
+        /* Toggle button */
+        .toggle-btn {
+            position: absolute;
+            left: 260px;
+            top: 20px;
+            cursor: pointer;
+            font-size: 18px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            transition: left 0.3s;
+        }
+  
+        .collapsed {
+            width: 60px;
+        }
+  
+        .collapsed .toggle-btn {
+            left: 70px;
+        }
+  
+        .collapsed a {
+            font-size: 0;
+            padding: 15px;
+        }
+  
+        .collapsed .logo {
+            font-size: 0;
+        }
+  
+    </style>
+      
+    </head>
+    <body style="background-color: white;">
+        
+    <div class="sidebar" id="sidebar">
+        <div class="logo">My Logo</div>
+        <a href="Dashboard.html">Home</a>
+
+        
+    </div>
+    <button class="toggle-btn" id="toggleBtn">☰</button>
+
+    <div class="container" id="main-container">
+    
+        <h1>Skill Suggestion Tool</h1>
+
+        <!-- Programming Category -->
+        <div class="category">
+            <h2>Programming</h2>
+            <p>Skills to Learn:</p>
+            <ul class="skills">
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>C++</li>
+                <li>Java</li>
+            </ul>
+            <p>How to Learn:</p>
+            <ul>
+                <li>Follow online tutorials like freeCodeCamp or Coursera</li>
+                <li>Practice with coding platforms like LeetCode or CodeWars</li>
+                <li>Contribute to open-source projects</li>
+            </ul>
+        </div>
+    
+        <!-- Data Science Category -->
+        <div class="category">
+            <h2>Data Science</h2>
+            <p>Skills to Learn:</p>
+            <ul class="skills">
+                <li>Data Analysis</li>
+                <li>Machine Learning</li>
+                <li>Data Visualization</li>
+            </ul>
+            <p>How to Learn:</p>
+            <ul>
+                <li>Take courses on platforms like Coursera, Udacity, or edX</li>
+                <li>Work with real-world datasets on Kaggle</li>
+                <li>Build your own data science projects</li>
+            </ul>
+        </div>
+    
+        <!-- Design Category -->
+        <div class="category">
+            <h2>Design</h2>
+            <p>Skills to Learn:</p>
+            <ul class="skills">
+                <li>Graphic Design</li>
+                <li>UI/UX</li>
+                <li>3D Modeling</li>
+            </ul>
+            <p>How to Learn:</p>
+            <ul>
+                <li>Learn design tools like Adobe Photoshop, Illustrator, or Figma</li>
+                <li>Take design courses from platforms like Udemy or Skillshare</li>
+                <li>Practice by creating designs for personal or freelance projects</li>
+            </ul>
+        </div>
+    
+        <!-- Marketing Category -->
+        <div class="category">
+            <h2>Marketing</h2>
+            <p>Skills to Learn:</p>
+            <ul class="skills">
+                <li>SEO</li>
+                <li>Content Marketing</li>
+                <li>Social Media Marketing</li>
+            </ul>
+            <p>How to Learn:</p>
+            <ul>
+                <li>Follow blogs and YouTube channels on digital marketing</li>
+                <li>Take online marketing courses on platforms like HubSpot or Google</li>
+                <li>Apply your skills by managing real-world marketing campaigns</li>
+            </ul>
+        </div>
+    
+    <script src="script.js"></script>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        h1 {
+            margin: 0;
+        }
+        section {
+            margin: 2rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            margin: 0;
+            padding: 0 0 0 1.5rem;
+        }
+        li {
+            margin: 0.5rem 0;
+        }
+        .learn-btn {
+            display: block;
+            margin: 1rem 0;
+            padding: 0.5rem;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .learn-btn:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #333;
+            color: white;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Cyber Security</h1>
+</header>
+
+<section>
+    <h2>What is Cyber Security?</h2>
+    <p>Cybersecurity refers to the practice of protecting systems, networks, and programs from digital attacks. These cyberattacks are usually aimed at accessing, changing, or destroying sensitive information, extorting money, or interrupting normal business processes.</p>
+</section>
+
+<section>
+    <h2>How to Learn Cyber Security</h2>
+    <p>Learning cybersecurity involves a combination of theoretical knowledge and hands-on experience. Below are steps to get started:</p>
+    <ul>
+        <li>Understand the fundamentals of IT and networking.</li>
+        <li>Learn about different types of threats like malware, phishing, and ransomware.</li>
+        <li>Familiarize yourself with tools like firewalls, antivirus software, and encryption methods.</li>
+        <li>Take online courses and certifications like CompTIA Security+, CEH, or CISSP.</li>
+        <li>Join cybersecurity communities and forums for networking and knowledge-sharing.</li>
+    </ul>
+    <a href="CYBER SEC.HTML" class="learn-btn">Start Learning Now</a>
+</section>
+
+<section>
+    <h2>Types & Categories of Cyber Security</h2>
+    <ul>
+        <li><strong>Network Security:</strong> Protects the integrity of a network and its data from intrusions and threats.</li>
+        <li><strong>Information Security:</strong> Protects sensitive data from unauthorized access and modification.</li>
+        <li><strong>Application Security:</strong> Secures software applications from threats during development and deployment.</li>
+        <li><strong>Cloud Security:</strong> Focuses on protecting data stored and processed in the cloud.</li>
+        <li><strong>Endpoint Security:</strong> Protects individual devices like laptops, smartphones, and tablets from cyberattacks.</li>
+    </ul>
+</section>
+
+<footer>
+    <p>© 2024 Cyber Security Learning Hub</p>
+</footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
